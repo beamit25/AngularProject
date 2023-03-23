@@ -1,0 +1,32 @@
+<html>
+    <body>
+<br>
+<div class="container">
+    <br>
+<form #TransferForm="ngForm" class="funds-container">
+    <p><input type="text" [(ngModel)]="id" #idRef='ngModel' name="id" id="id" placeholder="ID" required></p>
+    <div *ngIf="idRef.invalid && (idRef.touched || idRef.dirty)">
+        <p *ngIf="idRef.errors?.['required']">ID is required, cant be blank.</p>
+    </div>
+    <p><input type="text" [(ngModel)]="idtoid" #idtoidRef='ngModel' name="idtoid" id="idtoid" placeholder="ID" required></p>
+    <div *ngIf="idtoidRef.invalid && (idtoidRef.touched || idtoidRef.dirty)">
+        <p *ngIf="idtoidRef.errors?.['required']">ID is required, cant be blank.</p>
+    </div>
+    <p><input type="number" [(ngModel)]="amount" #balanceRef="ngModel" name="amount" id="amount" placeholder="Amount" required></p>
+    <div *ngIf="balanceRef.invalid && (balanceRef.touched || balanceRef.dirty)">
+        <p *ngIf="balanceRef.errors?.['required']">Name is required, cant be blank.</p>
+    </div>
+    
+    <p><input type="submit" class="btn btn-secondary" value="Transfer" (click) = "onSubmit(id,idtoid,amount)" [disabled]="!TransferForm.valid"></p>
+<br>
+</form>
+</div>
+
+<div *ngIf="msg" class="alert alert-success" >
+    <p class=" ">{{msg}}        </p>
+</div>
+<div *ngIf="errorMsg" class="alert alert-danger">
+    <p>{{errorMsg}}</p> 
+</div>
+</body>
+</html>

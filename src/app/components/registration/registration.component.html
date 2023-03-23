@@ -1,0 +1,71 @@
+
+<html>
+    <body>  
+        <br>
+<h2>Registration</h2>
+<div class="container">
+<form #regform="ngForm">
+    <div>
+    <label for="name" >Name</label>
+    <input type="text" [(ngModel)]="wallet.name" #nameRef="ngModel"  name="name" id="name"
+                        pattern="[A-Za-z ]{3,}" title="Only chars are allowed,Min 3 char required" required>
+                    <div *ngIf="nameRef.invalid && (nameRef.touched || nameRef.dirty)">
+                        <p *ngIf="nameRef.errors?.['required']" class="text-danger">Name is required, cant be balnk.</p>
+                        <p *ngIf="nameRef.errors?.['pattern']" class="text-danger">Name must have at least 3 chars, only chars are
+                              allowed.</p>
+                    </div>
+    </div>
+<div>
+<label for="email">Email</label>
+<input type="email" [(ngModel)]="wallet.email" #emailRef="ngModel" name="email" id="email" email="true"
+                     required>
+                <div *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)">
+                    <p *ngIf="emailRef.errors?.['required']" class="text-danger">email is required, cant be balnk.</p>
+                    <p *ngIf="emailRef.errors?.['email']" class="text-danger"> invaild email typed </p>
+                </div>
+</div>
+<div>
+    <label for="password">Password</label>
+    <input type="text" [(ngModel)]="wallet.password" #passwordRef="ngModel" name="password" id="password"
+        min =0 required>
+                        <div *ngIf="passwordRef.invalid && (passwordRef.touched || passwordRef.dirty)">
+                                        <p *ngIf="passwordRef.errors?.['required']" class="text-danger"> password is required, cant be balnk.</p>
+                                        <p *ngIf="passwordRef.errors?.['password']" class="text-danger">password value </p>
+                                    </div>
+    </div>
+<div>
+<label for="role">Role</label>
+<!-- <input type="text" [(ngModel)]="wallet.role" #roleRef="ngModel" name="role" id="role"
+    min =0 required>
+                    <div *ngIf="roleRef.invalid && (roleRef.touched || roleRef.dirty)">
+                                    <p *ngIf="roleRef.errors?.['required']" class="text-danger">role is required, cant be balnk.</p>
+                                    <p *ngIf="roleRef.errors?.['min']" class="text-danger">role must have positive value </p>
+                                </div> -->
+                                <select name="role" id="role" [(ngModel)]="wallet.role">
+                                    <option value="user">user</option>
+                                    <option value="admin">admin</option>
+                                  </select>
+</div>
+<br>
+
+<div>
+<input type ="submit" class="btn btn-secondary" (click)= "onSubmit()" [disabled]="!regform.valid" value="submit">                      
+                </div>
+                <br>
+</form>
+      </div>
+      <div>
+          <!-- <p>*please select role as 'admin' or 'user'</p> -->
+          
+      </div>
+
+
+
+      <div *ngIf="msg" class="alert alert-success" >
+        <p class=" ">{{msg}}        </p>
+    </div>
+    <div *ngIf="errorMsg" class="alert alert-danger">
+        <p>{{errorMsg}}</p> 
+    </div>
+        </body>
+        </html>

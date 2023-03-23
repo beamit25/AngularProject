@@ -1,0 +1,48 @@
+<div *ngIf="checkRole() == 'public'">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a routerLink="home" class="nav-link">Home</a></li>
+      <li class="nav-item"><a routerLink="/login" class="nav-link">Login</a></li>
+      <li class="nav-item"><a routerLink="/registration" class="nav-link">Registration</a></li>
+
+    </ul>
+  </nav>
+
+</div>
+
+<!-- user menu -->
+<div *ngIf="checkRole() =='user'">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-center">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item"><a routerLink="home" class="nav-link">Home</a></li>
+
+      <li class="nav-item"><a routerLink="/profile" class="nav-link">Profile </a></li>
+      <li class="nav-item"><a routerLink="/addfunds" class="nav-link">AddFunds</a></li>
+      <li class="nav-item"><a routerLink="/withdrawfunds" class="nav-link">WithdrawFunds</a></li>
+      <li class="nav-item"><a routerLink="/transferfunds" class="nav-link">TransferFunds</a></li>
+
+      <li class="nav-item"><a (click)="userLogout()" class="nav-link">LogOut </a> </li>
+
+    </ul>
+  </nav>
+
+</div>
+
+<!-- admin menu -->
+<div *ngIf="checkRole() =='admin'">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a routerLink="home" class="nav-link">Home</a></li>
+
+      <li class="nav-item"><a routerLink="/profile" class="nav-link">Profile </a></li>
+
+      <li class="nav-item"><a routerLink="/allwallets" class="nav-link">AllWallets </a></li>
+
+      <li class="nav-item"><a (click)="userLogout()" class="nav-link">LogOut </a> </li>
+
+    </ul>
+  </nav>
+
+</div>
+<router-outlet></router-outlet>

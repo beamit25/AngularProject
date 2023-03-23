@@ -1,0 +1,39 @@
+<html>
+    <body>
+<div class="container">
+    <H1>All wallet details:</H1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let all of allwallets">
+                <td>{{all.id}}</td>
+                <td>{{all.name}}</td>
+                <td>{{all.balance}}</td>
+                 <td>
+                    <input type="button" class="btn btn-info" (click)="updateWallet(all)" value="Update">
+            
+                   <input type="button" class="btn btn-danger" (click)="deleteWallet(all.id)" value="Delete">
+                
+                </td> 
+            </tr>
+        </tbody>
+
+    </table>
+    <div *ngIf="msg" class="alert alert-success" >
+        <p class="">{{msg}}</p>
+    </div>
+    <div *ngIf="errorMsg" class="alert alert-danger">
+        <p>{{errorMsg}}</p> 
+    </div>
+</div>
+</body>
+</html>

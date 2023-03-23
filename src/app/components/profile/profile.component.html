@@ -1,0 +1,65 @@
+<html>
+
+<body>
+
+
+<!-- <h1>Profile  </h1>
+<p>Name: {{wallet.name}} <br>
+Email: {{wallet.email}}<br>
+Id: {{wallet.id}}</p>
+<input type="button" class="btn btn-info" (click)="updateWallet(wallet)" value="Update">
+<input type="button" class="btn btn-danger" (click)="deleteWallet(wallet.id)" value="Delete"> -->
+
+<div >
+    <br>
+    <table id= displayWallets>
+        <tr>
+            <th>Information</th>
+            <th>Values </th>
+            
+        </tr>
+        <tr>
+            <td>Id : </td>
+            <td>{{wallet.id}}</td>
+        </tr>
+        <tr>
+            <td>Name : </td>
+            <td>{{wallet.name}}</td>
+        </tr>
+        <tr>
+            <td>Email : </td>
+            <td>{{wallet.email}}</td>
+        </tr>
+        <tr>
+            <td>Balance : </td>
+            <td>{{wallet.balance}}</td>
+        </tr>
+        <tr>
+            <td>Role : </td>
+            <td>{{wallet.role}}</td>
+        </tr>
+        <br><br>
+        
+    
+    </table>
+    <div style="text-align:center">  
+    <input type="button" class="btn btn-info" (click)="updateWallet(wallet)" value="Update" > &nbsp;
+    
+        <input type="button" class="btn btn-danger" (click)="deleteWallet(wallet.id)" value="Delete"> 
+        </div>
+</div>
+
+<div *ngIf="msg" class="alert alert-success" >
+    <p class="">{{msg}}</p>
+</div>
+<div *ngIf="errorMsg" class="alert alert-danger">
+    <p>{{errorMsg}}</p> 
+</div>
+
+</body>
+</html>
+
+
+
+
+
